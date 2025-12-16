@@ -1,0 +1,123 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[slovene]{babel}
+\usepackage{fancyhdr}
+\usepackage{ccicons}
+\usepackage{hyperref}
+
+\title{Stopnje delovanja procesorja (dejavnost)}
+\author{Primož Lah}
+\date{December 2025}
+
+\begin{document}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead{}
+\fancyfoot[C]{
+Stopnje delovanja procesorja (dejavnost), 2025, by P. Lah is licensed under \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} \ccbysa \\
+\thepage
+}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\section{Uvod}
+V tej datoteki so predstavljena navodila za izvedbo učne dejavnosti za predstavitev stopenj (\textit{fetch, decode, execute}) delovanja centralne procesne enote (\textit{CPE}) in cevovoda (\textit{pipeline}).
+Priloženi so tudi potrebni pripomočki, opisani kasneje.
+Dejavnost je priporočena za učence zadnjega triletja osnovne šole, ki že imajo določena predznanja (opisano v 1. poglavju).
+
+\section{Predznanje}
+\subsection{Potrebno predznanje}
+Pred izvedbo te dejavnosti morajo učenci že poznati:
+\begin{itemize}
+    \item von Neumannovo arhitekturo
+    \item naključni dostop
+    \item delovanje pomnilnika
+    \item pomnilniški naslov in naslavljanje
+    \item Strojna koda (assembler)
+\end{itemize}
+\subsection{Priporočeno predznanje}
+Za lažjo in bolj podrobno izvedbo je priporočeno, da učenci že poznajo naslednja področja:
+\begin{itemize}
+    \item pomnilniška hierarhija
+    \item sklad
+    \item osnovna zgradba CPE
+\end{itemize}
+\newpage
+
+\section{Pripomočki}
+Za izvedbo dejavnosti so potrebni sledeči pripomočki:
+\begin{itemize}
+    \item Tabla, ki se uporabi za:
+    \begin{itemize}
+        \item programski števec
+        \item ukazni register
+        \item akumulator
+    \end{itemize}
+    \item List z razpredelnico
+    \begin{itemize}
+        \item predstavlja vsebino pomnilnika in
+        \item ima že vpisan potreben program
+    \end{itemize}
+\end{itemize}
+Priloženi so primeri natisljivih pripomočkov.
+
+\section{Izvedba}
+Priporočeno minimalno število učencev za izvedbo dejavnosti je X, lahko pa se dejavnost prilagodi glede na velikost skupine.
+Z večjo skupino se lahko hipotetični procesor bolj razveji, s tem da dodamo še druge komponente, ki so v opisani izvedbi opuščene (npr. registri, predpomnilniki, itd.).
+Opisana je osnovna verzija, ki je zadostna za prikaz stopenj delovanja CPE in cevovoda.
+\subsection{Razdelitev nalog med učenci}
+    \begin{itemize}
+        \item Aritmetično-logična enota (ALE)
+        \item Pomnilnik (RAM)
+        \item Kontrolna enota
+        \item Vodilo
+        \item Programski števec (PC)
+        \item Ukazni register
+        \item Akumulator
+    \end{itemize}
+
+\subsection{Potek dejavnosti}
+Učitelj predstavlja vlogo ure - določi signal, ki šteje za novo urino periodo.
+Učenca A, B in C v tem primeru predstavljajo vodila.
+Po potrebi se lahko to število zmanjša in lahko en sam učenec (ali dva) prevzame delo vseh vodil.
+V tem primeru vsaka oštevilčena alineja predstavlja eno urino periodo.
+\begin{enumerate}
+    \item   \begin{itemize}
+                \item Programski števec je nastavljen na 0
+                \item Učenec A pridobi število od PC in ga prenese do RAM
+            \end{itemize}
+    \item   \begin{itemize}
+                \item RAM poišče naslov 0 v razpredelnici in učencu B pove ukaz, zapisan na tem naslovu
+                \item Učenec B ta ukaz prenese do ukaznega registra
+            \end{itemize}
+    \item   \begin{itemize}
+                \item Kontrolna enota prebere ukaz iz ukaznega registra
+                \item Kontrolna enota preda ukaz učencu C
+            \end{itemize}
+    \item   \begin{itemize}
+                \item Učenec C izvede ukaz
+            \end{itemize}
+    \item   \begin{itemize}
+                \item Učenec C zapiše rezultat v akumulator
+                \item Programski števec se poveča za 1
+                \item Cikel se ponovi, zdaj ima programski števec vrednost za 1 večjo od prejšnjega koraka
+            \end{itemize}
+\end{enumerate}
+
+\subsection{Izvedba ukazov}
+\begin{itemize}
+    \item LOAD 6 - učenec od RAM pridobi vrednost na naslovu 6, v naslednjem koraku (zapis v register) to vrednost zapiše v akumulator
+    \item ADD 7 - učenec od RAM pridobi vrednost na naslovu 7 in izračuna vsoto te vrednosti in vrednosti iz akumulatorja, v naslednjem koraku to vsoto zapiše v akumulator
+    \item STORE 6 - učenec prebere vrednost iz akumulatorja in jo prenese do RAM, ki jo v naslednjem koraku zapiše pod naslov 6 (\emph{Pomembno: tudi če je pod naslovom 6 že neka vrednost, jo RAM pobriše in prekrije z novo vrednostjo})
+    \item JUMP 1 - učenec programskemu števcu določi, naj se nastavi na vrednost 1, kar bo PC storil v naslednjem koraku, torrej naslednji cikel se začne s PC vrednostjo 1
+\end{itemize}
+
+\subsection{Variacije}
+Kot že omenjeno, se lahko dejavnost izvede z manj učenci, če več funkcij dodelimo enemu učencu (to najbolj enostavno storimo pri vodilih) ali z več učenci, če dodamo še druge funkcionalnosti (npr. bolj obsežen program, predpomnilniki, ipd.).
+Na začetku za enostavnost razlage lahko uro tudi izpustimo in jim predstavimo le korake, ki jih posamezno izvedejo.
+Kasneje pa lahko dodamo še uro, to pa še naprej nadgradimo s hkratnim izvajanjem, s čimer uvedemo tudi idejo cevovoda.
+Pri vpeljavi cevovoda je pomembno še, da opozorimo na trajanje posameznega koraka in omejitev sposobnosti cevovoda pri razlikah v trajanju. 
+
+\end{document}
