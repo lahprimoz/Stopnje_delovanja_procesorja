@@ -70,7 +70,7 @@ Priloženi so primeri natisljivih pripomočkov.
 \newpage
 
 \section{Izvedba}
-Priporočeno minimalno število učencev za izvedbo dejavnosti je X, lahko pa se dejavnost prilagodi glede na velikost skupine.
+Priporočeno minimalno število učencev za izvedbo dejavnosti je 5, lahko pa se dejavnost prilagodi glede na velikost skupine.
 Z večjo skupino se lahko hipotetični procesor bolj razveji, s tem da dodamo še druge komponente, ki so v opisani izvedbi opuščene (npr. registri, predpomnilniki, itd.).
 Opisana je osnovna verzija, ki je zadostna za prikaz stopenj delovanja CPE in cevovoda.
 \subsection{Razdelitev nalog med učenci}
@@ -117,7 +117,7 @@ V tem primeru vsaka oštevilčena alineja predstavlja eno urino periodo.
     \item LOAD 6 - učenec od RAM pridobi vrednost na naslovu 6, v naslednjem koraku (zapis v register) to vrednost zapiše v akumulator
     \item ADD 7 - učenec od RAM pridobi vrednost na naslovu 7 in izračuna vsoto te vrednosti in vrednosti iz akumulatorja, v naslednjem koraku to vsoto zapiše v akumulator
     \item STORE 6 - učenec prebere vrednost iz akumulatorja in jo prenese do RAM, ki jo v naslednjem koraku zapiše pod naslov 6 (\emph{Pomembno: tudi če je pod naslovom 6 že neka vrednost, jo RAM pobriše in prekrije z novo vrednostjo})
-    \item JUMP 1 - učenec programskemu števcu določi, naj se nastavi na vrednost 1, kar bo PC storil v naslednjem koraku, torrej naslednji cikel se začne s PC vrednostjo 1
+    \item JUMP 1 - učenec programskemu števcu določi, naj se nastavi na vrednost 1, kar bo PC storil v naslednjem koraku, torej naslednji cikel se začne s PC vrednostjo 1
 \end{itemize}
 
 \subsection{Variacije}
