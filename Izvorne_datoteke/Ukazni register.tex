@@ -1,0 +1,50 @@
+\documentclass[a4paper]{article}
+\usepackage[slovene]{babel}
+\usepackage{fancyhdr}
+\usepackage{ccicons}
+\usepackage[hidelinks]{hyperref}
+
+\title{Ukazni register}
+\author{Primož Lah}
+\date{December 2025}
+
+\begin{document}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyhead{}
+\fancyfoot[C]{
+Ukazni register, 2025, by P. Lah is licensed under \href{https://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0} \ccbysa \\
+\thepage
+}
+\maketitle
+Navodila za učenca, ki predstavlja kontrolno enoto.
+Tu poišče navodila za izvedbo posameznega ukaza, ki jih  preda naslednjemu učencu, ki bo te korake izvedel.
+\newpage
+
+\section{LOAD $x$}
+\begin{itemize}
+    \item Pojdi do RAM in pridobi vrednost, ki je napisana na naslovu $x$
+    \item To vrednost zapiši v akumulator
+\end{itemize}
+
+\section{ADD $x$}
+\begin{itemize}
+    \item Pojdi do RAM in pridobi vrednost, ki je napisana na naslovu $x$. 
+    Seštej $x$ in trenutno vrednost akumulatorja
+    \item To vsoto zapiši v akumulator
+\end{itemize}
+
+\section{STORE $x$}
+\begin{itemize}
+    \item Pojdi do akumulatorja in pridobi vrednost, ki je v njem zapisana
+    \item Pojdi do RAM in zapiši to vrednost na naslov $x$
+\end{itemize}
+
+\section{JUMP $x$}
+\begin{itemize}
+    \item Pojdi do PC
+    \item Nastavi vrednost PC na $x$
+\end{itemize}
+
+\end{document}
