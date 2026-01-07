@@ -10,4 +10,3 @@ Glavna datoteka repozitorija je **Stopnje delovanja procesorja (dejavnost).pdf**
 Dodani sta tudi dve natisljivi datoteki, ki predstavljata pomnilnik in se lahko uporabita pri izvedbi.
 Ena od njih je neizpolnjena tabela, v katero se lahko vpiše program, ki ga bo hipotetična CPE izvedla.
 Druga pa je podobna tabela, ki pa že vsebuje vpisan program za števec.
-> Kasneje je načrtovana še animacija, ki prikazuje stopnje delovanja procesorja in načrt za izdelavo fizičnega didaktičnega pripomočka za predstavitev te teme.
